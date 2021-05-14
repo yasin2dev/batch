@@ -19,6 +19,15 @@ class App(tk.Frame):
         self.wlcm = tk.Label(self)
         self.abt = tk.Label(self)
         self.create = tk.Button(self)
+        self.open = tk.Button(self)
+        #
+        self.open["text"] = "Open Batch File"
+        self.open["font"] = "Arial", 12
+        self.open["highlightthickness"] = 10
+        self.open["borderwidth"] = 0
+        self.open["bg"] = "#101010"
+        self.open["fg"] = "#ffffff"
+        self.open["command"] = self.openBatchFile
         #
         self.create["text"] = "Create batch file"
         self.create["font"] = "Arial", 12
@@ -36,13 +45,21 @@ class App(tk.Frame):
         ##
         self.wlcm.pack(side="top", pady=15)
         self.abt.pack(side="top")
-        self.create.pack(side="bottom",pady=50)
+        self.open.pack(side="bottom")
+        self.create.pack(side="bottom", pady=15)
 
     def saveBatchFile(self):
         self.filetypes = (('Batch files', '*.bat'),('All files', '*.*'))
         self.fd = filedialog.asksaveasfile(mode="w", title="Select save directory and filename", initialdir="/Desktop", filetypes=self.filetypes, defaultextension="*.bat")
         self.data = str(cl.get(1.0, tk.END))
         self.fd.write(self.data)
+        self.fd.close()
+
+    def openBatchFile(self):
+        self.fd = filedialog.askopenfilename(title="Select file to open", initialdir="/Desktop")
+        self.fd = open(self.fd)
+        self.data = self.fd.read()
+        str(cl.insert(tk.END, self.data))
         self.fd.close()
 
 root.geometry("480x480")
