@@ -4,7 +4,7 @@
 
 <img src="./res/batch.png"></img>
 
-<span>Version: 0.1</span>
+<span>Version: 0.2</span>
 
 <h2><b>How to setup?</b></h2>
 
