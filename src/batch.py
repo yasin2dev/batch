@@ -56,11 +56,17 @@ class App(tk.Frame):
         self.fd.close()
 
     def openBatchFile(self):
+        cl.delete(1.0, tk.END)
         self.fd = filedialog.askopenfilename(title="Select file to open", initialdir="/Desktop")
         self.fd = open(self.fd)
         self.data = self.fd.read()
         str(cl.insert(tk.END, self.data))
+        self.title = self.master.wm_title
         self.fd.close()
+        self.insertTitle(self.fd.name)
+    
+    def insertTitle(self, title):
+        self.master.wm_title(title + " - Batch")
 
 root.geometry("480x480")
 root.wm_title("Batch")
