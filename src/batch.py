@@ -72,6 +72,6 @@ class App(tk.Frame):
 root.geometry("480x480")
 root.wm_title("Batch")
 root.resizable(0,0),
-root.iconbitmap("./res/batch.ico")
+root.iconbitmap("../res/batch.ico")
 app = App(master=root)
 app.mainloop()

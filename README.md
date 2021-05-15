@@ -6,10 +6,10 @@
 
 <span>Version: 0.2</span>
 
-<h2><b>How to setup?</b></h2>
+<h2><b>How to run?</b></h2>
 
 <p>
-    <h3>Download the setup file from releases, double click to file and click next and setuped 🥳</h3>
+    <h3>Download the source code and run the batch.py</h3>
 </p>
 
 <br>
