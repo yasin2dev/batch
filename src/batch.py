@@ -57,7 +57,8 @@ class App(tk.Frame):
 
     def openBatchFile(self):
         cl.delete(1.0, tk.END)
-        self.fd = filedialog.askopenfilename(title="Select file to open", initialdir="/Desktop")
+        self.filetypes = (('Batch files', '*.bat'),('All files', '*.*'))
+        self.fd = filedialog.askopenfilename(title="Select file to open", initialdir="/Desktop", filetypes=self.filetypes)
         self.fd = open(self.fd)
         self.data = self.fd.read()
         str(cl.insert(tk.END, self.data))
@@ -71,6 +72,6 @@ class App(tk.Frame):
 root.geometry("480x480")
 root.wm_title("Batch")
 root.resizable(0,0),
-root.iconbitmap(r"C:\Users\yasin\Desktop\projects\batch\res\batch.ico")
+root.iconbitmap("./res/batch.ico")
 app = App(master=root)
 app.mainloop()
